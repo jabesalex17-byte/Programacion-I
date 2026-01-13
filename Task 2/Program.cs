@@ -31,6 +31,7 @@ static string VerifyNumber(int x)
     {
         return "The number is  invalid";
     }
-    var message = x % 2 == 0 ? "The number is par" : "The number is impar";
+    var message = x % 2 == 0 ? "The number is pair" : "The number is odd";
     return message;
+
 }
