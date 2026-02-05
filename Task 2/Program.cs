@@ -24,3 +24,4 @@ static string VerifyNumber(int x)
     var message = x % 2 == 0 ? "The number is par" : "The number is impar";
     return message;
 }
+
