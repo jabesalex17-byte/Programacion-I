@@ -26,7 +26,7 @@ Dictionary<int, bool> bestFriends = new Dictionary<int, bool>();
 while (runing)
 {
     Console.Clear();
-    Console.WriteLine("------------------------------------------\nWelcome to my Contact List\n-----------------------------------------------\n");
+    Console.WriteLine("-----------------------------------------\nWelcome to My Contact List\n-----------------------------------------\n");
     Console.WriteLine(@"1. Add Contact     2. View Contacts    3. Search Contacts     4. Edit Contact   5. Delete Contact    6. Exit");
     Console.WriteLine("\nEnter the number of the desired option");
     try
@@ -768,3 +768,4 @@ static void PastIds(List<int> Past_ids,int id)
 {
     Past_ids.Add(id);
 }
+
