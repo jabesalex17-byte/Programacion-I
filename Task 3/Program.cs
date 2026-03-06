@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualBasic;
+using Microsoft.VisualBasic;
 using Microsoft.Win32.SafeHandles;
 using System.Data;
 using System.Net;
@@ -416,11 +416,17 @@ void SearchById()
 static void Search(int id, Dictionary<int, string> names, Dictionary<int, string> lastnames, Dictionary<int, string> addresses, Dictionary<int, string> telephones, Dictionary<int, string> emails, Dictionary<int, int> ages, Dictionary<int, bool> bestFriends)
 {
     Console.Clear();
+    Console.WriteLine();
+    string header = $"{"Id",-4} | {"Name",-12} | {"Last Name",-12} | {"Address",-50} | {"Phone",-12} | {"Email",-35} | {"Age",-4} | {"Best Friend",-12}";
+
+    Console.WriteLine();
+    Console.WriteLine(header);
+    Console.WriteLine(new string('-', header.Length));
+
     string isBestFriendStr = IsBestfriendStr(bestFriends[id]);
-    Console.WriteLine("");
-    Console.WriteLine($"Id        Name          Last Name            Address           Phone            Email           Age            Is Best Friend?");
-    Console.WriteLine($"____________________________________________________________________________________________________________________________________________________");
-    Console.WriteLine($"{names[id]}         {lastnames[id]}         {addresses[id]}         {telephones[id]}            {emails[id]}            {ages[id]}          {isBestFriendStr}");
+
+    Console.WriteLine($"{id,-4} | {names[id],-12} | {lastnames[id],-12} | {addresses[id],-50} | {telephones[id],-12} | {emails[id],-35} | {ages[id],-4} | {isBestFriendStr,-12}");
+
     Console.Write("Press enter to continue..................");
     Console.ReadKey();
 }
@@ -459,17 +465,26 @@ void SearchByPhone()
 static void ViewContacList(List<int> ids, Dictionary<int, string> names, Dictionary<int, string> lastnames, Dictionary<int, string> addresses, Dictionary<int, string> telephones, Dictionary<int, string> emails, Dictionary<int, int> ages, Dictionary<int, bool> bestFriends ,bool exitFast = false)
 {
     Console.Clear();
-    Console.WriteLine("");
-    Console.WriteLine($"Id        Name          Last Name            Address           Phone            Email           Age            Is Best Friend?");
-    Console.WriteLine($"____________________________________________________________________________________________________________________________________________________");
+    Console.WriteLine();
+
+    string header = $"{"Id",-4} | {"Name",-12} | {"Last Name",-12} | {"Address",-50} | {"Phone",-12} | {"Email",-35} | {"Age",-4} | {"Best Friend",-12}";
+
+    Console.WriteLine();
+    Console.WriteLine(header);
+    Console.WriteLine(new string('-', header.Length));
+
     foreach (var id in ids)
     {
         string isBestFriendStr = IsBestfriendStr(bestFriends[id]);
-        Console.WriteLine($"{id}          {names[id]}         {lastnames[id]}         {addresses[id]}         {telephones[id]}            {emails[id]}            {ages[id]}          {isBestFriendStr}");
+
+        Console.WriteLine(
+        $"{id,-4} | {names[id],-12} | {lastnames[id],-12} | {addresses[id],-50} | {telephones[id],-12} | {emails[id],-35} | {ages[id],-4} | {isBestFriendStr,-12}"
+        );
     }
+
     if (exitFast == false)
     {
-        Console.Write("Press enter to continue ................");
+        Console.Write("\nPress enter to continue...");
         Console.ReadKey();
     }
 }
