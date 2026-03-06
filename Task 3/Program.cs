@@ -33,40 +33,42 @@ while (runing)
     {
         int typeOption = Convert.ToInt32(Console.ReadLine());
         switch (typeOption)
-    {
-        case 1:
-            {
+        {
+            case 1:
+                {
 
-                FormulContact();
+                    FormulContact();
 
-            }
-            break;
-        case 2: 
-            {
-                ViewContacList(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends);
-            }
-            break;
-        case 3: 
-            {
-                SearchContact(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends);
-            }
-            break;
-        case 4: 
-            {
-                ModifyContact(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends);
-            }
-            break;
-        case 5: 
-            {
-                DeleteContact(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends,Past_ids);
-            }
-            break;
-        case 6:
-            runing = false;
-            break;
-        default:
-            break;
-    }
+                }
+                break;
+            case 2: 
+                {
+                    ViewContacList(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends);
+                }
+                break;
+            case 3: 
+                {
+                    SearchContact(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends);
+                }
+                break;
+            case 4: 
+                {
+                    ModifyContact(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends);
+                }
+                break;
+            case 5: 
+                {
+                    DeleteContact(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends,Past_ids);
+                }
+                break;
+            case 6:
+                {
+                    runing = false;
+                }
+                break;
+            default:
+                break;
+        }
     }
     catch
     {
@@ -78,7 +80,6 @@ while (runing)
 void FormulContact()
 {
     Console.Clear();
-    Console.WriteLine("------------------------------------------\nAdd Contact\n-----------------------------------------------");
     string name = VerifyName();
     string lastname = VerifylastName();
     string address = VerifyAddress();
