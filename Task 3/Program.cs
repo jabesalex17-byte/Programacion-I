@@ -80,13 +80,14 @@ while (runing)
 void FormulContact()
 {
     Console.Clear();
-    string name = VerifyName();
-    string lastname = VerifylastName();
-    string address = VerifyAddress();
-    string phone = VerifyTelephone();
-    string email = VerifyEmail();
-    int age = VerifyAge();
-    bool isBestFriend = VerifyBerstfriend();
+    string title = "----------------------------------------- Adding a contact-----------------------------------------\n";
+    string name = VerifyName(title);
+    string lastname = VerifylastName(title);
+    string address = VerifyAddress(title);
+    string phone = VerifyTelephone(title);
+    string email = VerifyEmail(title);
+    int age = VerifyAge(title);
+    bool isBestFriend = VerifyBerstfriend(title);
     string question = "\nAre you sure you want to add this contact?\n";
 
     bool confirm = ConfirmContact(name, lastname, address, phone, email, age, isBestFriend,question);
@@ -135,6 +136,7 @@ bool ConfirmContact(string name, string lastname, string address, string phone, 
     while (true)
     {
         Console.Clear();
+        Console.WriteLine("-----------------------------------------\r\nConfirm Contact\r\n-----------------------------------------\n");
         Console.WriteLine(message);
         Console.WriteLine(question);
         string isBestFriendStr = IsBestfriendStr(isBestFriend);
@@ -143,6 +145,9 @@ bool ConfirmContact(string name, string lastname, string address, string phone, 
 
         if (affirmative.Contains(answer.ToLower().Trim()))
         {
+            Console.WriteLine("\nAdd successfully");
+            Console.Write("Press enter to continue..................");
+            Console.ReadKey();
             return true;
         }
         else if (negative.Contains(answer.ToLower().Trim()))
@@ -157,12 +162,13 @@ bool ConfirmContact(string name, string lastname, string address, string phone, 
 
     }
 }
-string VerifyName()
+string VerifyName(string title)
 {
     string message = "";
     while (true)
     {
         Console.Clear();
+        Console.WriteLine(title);
         Console.WriteLine(message);
         Console.WriteLine("\nEnter the person's name");
         string name = Console.ReadLine()!;
@@ -185,12 +191,13 @@ string VerifyName()
         return name;
     }
 }
-string VerifylastName()
+string VerifylastName(string title)
 {
     string menssage = "";
     while (true)
     {
         Console.Clear();
+        Console.WriteLine(title);
         Console.WriteLine(menssage);
 
         Console.WriteLine("\nEnter the person's last name");
@@ -214,12 +221,13 @@ string VerifylastName()
         return lastname;
     }
 }
-string VerifyAddress()
+string VerifyAddress(string title)
 {
     string message = "";
     while (true)
     {
         Console.Clear();
+        Console.WriteLine(title);
         Console.WriteLine(message);
 
         Console.WriteLine("\nEnter the address");
@@ -239,12 +247,13 @@ string VerifyAddress()
         return address;
     }
 }
-string VerifyTelephone()
+string VerifyTelephone(string title)
 {
     string message = "";
     while (true)
     {
         Console.Clear();
+        Console.WriteLine(title);
         Console.WriteLine(message);
 
         Console.WriteLine("\nEnter the person's number without spaces\n\nexample +18092342220 or 8098129834");
@@ -270,12 +279,13 @@ string VerifyTelephone()
         return phone;
     }
 }
-string VerifyEmail()
+string VerifyEmail(string title)
 {
     string message = "";
     while (true)
     {
         Console.Clear();
+        Console.WriteLine(title);
         Console.WriteLine(message);
 
         Console.WriteLine("\nEnter the person's email");
@@ -293,12 +303,13 @@ string VerifyEmail()
         }
     }
 }
-int VerifyAge()
+int VerifyAge(string title)
 {
     string message = "";
     while (true)
     {
-        Console.Clear();
+        Console.Clear(); 
+        Console.WriteLine(title);
         Console.WriteLine(message);
 
         Console.WriteLine("\nEnter the person's age in numbers");
@@ -316,12 +327,13 @@ int VerifyAge()
         return age;
     }
 }
-bool VerifyBerstfriend()
+bool VerifyBerstfriend(string title)
 {
     string message = "";
     while (true)
     {
         Console.Clear();
+        Console.WriteLine(title);
         Console.WriteLine(message);
 
         Console.WriteLine("\nIs this your Best Friend?");
@@ -352,7 +364,8 @@ void SearchContact(List<int> ids, Dictionary<int, string> names, Dictionary<int,
     {
         Console.Clear();
         ViewContacList(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends, exitF);
-        Console.WriteLine("Do you want to search by ID or by the person's number?\n\nType exit to leave");
+        Console.WriteLine("\n\n-----------------------------------------\r\nSeach Contact\r\n-----------------------------------------\n");
+        Console.WriteLine("Do you want to search by ID or by the person's number?\n\nType exit to leave\n");
         Console.WriteLine(message);
         message = "";
         string answer = Console.ReadLine();
@@ -373,7 +386,7 @@ void SearchContact(List<int> ids, Dictionary<int, string> names, Dictionary<int,
         }
         else
         {
-            message = "Please enter the ID or number";
+            message = "Enter the field you want to search for.";
         }
     }
 }
@@ -386,9 +399,10 @@ void SearchById()
     {
         Console.Clear();
         ViewContacList(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends, exitF);
-        Console.WriteLine(messsage);
+        Console.WriteLine("\n\n-----------------------------------------\r\nSeach Contact\r\n-----------------------------------------\n");
         messsage = "";
         Console.WriteLine("What is the ID of the person you want to view?\n\nType exit to go back\n");
+        Console.WriteLine(messsage);
         string answer = Console.ReadLine();
 
         if (answer.ToLower().Trim() == "exit")
@@ -417,6 +431,8 @@ void SearchById()
 static void Search(int id, Dictionary<int, string> names, Dictionary<int, string> lastnames, Dictionary<int, string> addresses, Dictionary<int, string> telephones, Dictionary<int, string> emails, Dictionary<int, int> ages, Dictionary<int, bool> bestFriends)
 {
     Console.Clear();
+    Console.WriteLine("\n\n-----------------------------------------\r\nSeach Contact\r\n-----------------------------------------\n");
+
     Console.WriteLine();
     string header = $"{"Id",-4} | {"Name",-12} | {"Last Name",-12} | {"Address",-50} | {"Phone",-12} | {"Email",-35} | {"Age",-4} | {"Best Friend",-12}";
 
@@ -427,7 +443,7 @@ static void Search(int id, Dictionary<int, string> names, Dictionary<int, string
     string isBestFriendStr = IsBestfriendStr(bestFriends[id]);
 
     Console.WriteLine($"{id,-4} | {names[id],-12} | {lastnames[id],-12} | {addresses[id],-50} | {telephones[id],-12} | {emails[id],-35} | {ages[id],-4} | {isBestFriendStr,-12}");
-
+    Console.WriteLine("\nSearch successfully");
     Console.Write("Press enter to continue..................");
     Console.ReadKey();
 }
@@ -439,8 +455,9 @@ void SearchByPhone()
     {
         Console.Clear();
         ViewContacList(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends, exitF);
-        Console.WriteLine(message);
+        Console.WriteLine("\n\n-----------------------------------------\r\nSeach Contact\r\n-----------------------------------------\n");
         Console.WriteLine("What is the phone number of the person you want to search for?\n\nType exit to go back");
+        Console.WriteLine(message);
         string answer = Console.ReadLine();
 
         if (answer.ToLower().Trim() == "exit")
@@ -467,7 +484,7 @@ static void ViewContacList(List<int> ids, Dictionary<int, string> names, Diction
 {
     Console.Clear();
     Console.WriteLine();
-
+    Console.WriteLine("-----------------------------------------\r\nList Contact\r\n-----------------------------------------\n");
     string header = $"{"Id",-4} | {"Name",-12} | {"Last Name",-12} | {"Address",-50} | {"Phone",-12} | {"Email",-35} | {"Age",-4} | {"Best Friend",-12}";
 
     Console.WriteLine();
@@ -502,8 +519,9 @@ void ModifyContact(List<int> ids, Dictionary<int, string> names, Dictionary<int,
         {
             Console.Clear();
             ViewContacList(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends, exitF);
-            Console.WriteLine(message);
+            Console.WriteLine("\n\n-----------------------------------------\r\nModify Contact\r\n-----------------------------------------\n");
             Console.WriteLine("What is the ID of the person you want to modify?\n\nexit to leave");
+            Console.WriteLine(message);
 
             string answer = CheckId(ids);
             if (answer == "enter a valid id" || answer == "that id does not exist" || answer == "enter an id")
@@ -526,9 +544,10 @@ void ModifyContact(List<int> ids, Dictionary<int, string> names, Dictionary<int,
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("Type the number of what you want to modify\n\nexit to leave");
+            Console.WriteLine("\n\n-----------------------------------------\r\nModify Contact\r\n-----------------------------------------\n");
+            Console.WriteLine("Type the number of what you want to modify\n\nexit to leave\n");
+            Console.WriteLine("1.Name \n2.Last Name\n3.Address\n4.Phone\n5.Email\n6.Age\n7.Best Friend\n8. Modify all\n");
             Console.WriteLine(message);
-            Console.WriteLine("1.Name \n2.Last Name\n3.Address\n4.Phone\n5.Email\n6.Age\n7.Best Friend\n8. Modify all");
             string answer = CheckInformation();
             if (answer.ToLower().Trim() == "exit")
             {
@@ -542,9 +561,12 @@ void ModifyContact(List<int> ids, Dictionary<int, string> names, Dictionary<int,
             else
             {
                 int.TryParse(answer, out information);
-                
+
             }
             modifyInformation(id, information);
+            Console.WriteLine("\nModify successfully");
+            Console.Write("Press enter to continue..................");
+            Console.ReadKey();
         }
 
     }
@@ -607,71 +629,72 @@ static string CheckInformation()
 }
 void modifyInformation(int id, int information)
 {
+    string title = "-----------------------------------------\r\nModifing Contact\r\n-----------------------------------------\n";
     switch (information)
     {
         case 1:
             {
-                string NewName = VerifyName();
+                string NewName = VerifyName(title);
                 modifyName(id, NewName);
                 break;
             }
         case 2:
             {
-                string NewLastname = VerifylastName();
+                string NewLastname = VerifylastName(title);
                 modifyLastname(id, NewLastname);
                 break;
             }
         case 3:
             {
-                string NewAddress = VerifyAddress();
+                string NewAddress = VerifyAddress(title);
                 modifyAddress(id, NewAddress);
                 break;
             }
         case 4:
             {
-                string NewPhone = VerifyTelephone();
+                string NewPhone = VerifyTelephone(title);
                 modifyTelephones(id, NewPhone);
                 break;
             }
         case 5:
             {
-                string NewEmail = VerifyEmail();
+                string NewEmail = VerifyEmail(title);
                 modifyTelephones(id, NewEmail);
                 break;
             }
         case 6:
             {
-                int NewAge = VerifyAge();
+                int NewAge = VerifyAge(title);
                 modifyAges(id, NewAge);
                 break;
             }
         case 7:
             {
-                bool NewIsbestfriend = VerifyBerstfriend();
+                bool NewIsbestfriend = VerifyBerstfriend(title);
                 modifyBestfriend(id, NewIsbestfriend);
                 break;
             }
         case 8:
             {
-                string NewName = VerifyName();
+                string NewName = VerifyName(title);
                 modifyName(id, NewName);
 
-                string NewLastname = VerifylastName();
+                string NewLastname = VerifylastName(title);
                 modifyLastname(id, NewLastname);
 
-                string NewAddress = VerifyAddress();
+                string NewAddress = VerifyAddress(title);
                 modifyAddress(id, NewAddress);
 
-                string NewPhone = VerifyTelephone();
+                string NewPhone = VerifyTelephone(title);
                 modifyTelephones(id, NewPhone);
 
-                string NewEmail = VerifyEmail();
+                string NewEmail = VerifyEmail(title);
                 modifyTelephones(id, NewEmail);
 
-                int NewAge = VerifyAge();
+                int NewAge = VerifyAge(title);
                 modifyAges(id, NewAge);
 
-                bool NewIsbestfriend = VerifyBerstfriend();
+                bool NewIsbestfriend = VerifyBerstfriend(title);
                 modifyBestfriend(id, NewIsbestfriend);
 
                 break;
@@ -718,9 +741,9 @@ void DeleteContact(List<int> ids, Dictionary<int, string> names, Dictionary<int,
     {
         Console.Clear();
         ViewContacList(ids, names, lastnames, addresses, telephones, emails, ages, bestFriends, exitF);
+        Console.WriteLine("\n\n-----------------------------------------\n\nDelete Contact\n\n-----------------------------------------\n");
+        Console.WriteLine("What is the ID of the person you want to delete?\n\nexit to leave\n");
         Console.WriteLine(message);
-        message = "";
-        Console.WriteLine("What is the ID of the person you want to delete?\n\nexit to leave");
 
         string answer = CheckId(ids);
         if (answer == "enter a valid id" || answer == "that id does not exist" || answer == "enter an id")
@@ -768,4 +791,3 @@ static void PastIds(List<int> Past_ids,int id)
 {
     Past_ids.Add(id);
 }
-
