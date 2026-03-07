@@ -13,22 +13,26 @@ namespace Task_4.Helpers.Forms
     public class FormAddContact
     {
         static int idCount = 1;
+        static string title = "-----------------------------------------\nAdding Contact\n-----------------------------------------";
         public static void FormulContact()
         {
             Console.Clear();
-            string name = VerifyName.Verifyname();
-            string lastname = VerifyLastName.VerifylastName();
-            string address = VerifyAddress.Verifyaddress();
-            string phone = VerifyTelephone.Verifytelephone();
-            string email = VerifyEmail.Verifyemail();
-            int age = VerifyAges.VerifyAge();
-            bool isBestFriend = VerifyBestFriend.VerifyBerstfriend();
+            string name = VerifyName.Verifyname(title);
+            string lastname = VerifyLastName.VerifylastName(title);
+            string address = VerifyAddress.Verifyaddress(title);
+            string phone = VerifyTelephone.Verifytelephone(title);
+            string email = VerifyEmail.Verifyemail(title);
+            int age = VerifyAges.VerifyAge(title);
+            bool isBestFriend = VerifyBestFriend.VerifyBerstfriend(title);
             string question = "\nAre you sure you want to add this contact?\n";
 
             bool confirm = utilities.ConfirmContact.Confirmcontact(name, lastname, address, phone, email, age, isBestFriend, question);
 
             if (confirm)
             {
+                Console.WriteLine("\nAdd Contant successfully");
+                Console.WriteLine("Press enter to continue.............................");
+                Console.ReadKey();
                 var c = new contact
                 {
                     Name = name,

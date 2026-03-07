@@ -8,12 +8,13 @@ namespace Task_4.Helpers.Verifyfield
 {
     public class VerifyAges
     {
-        public static int VerifyAge()
+        public static int VerifyAge(string title)
         {
             string message = "";
             while (true)
             {
                 Console.Clear();
+                Console.WriteLine(title);
                 Console.WriteLine(message);
 
                 Console.WriteLine("\nEnter the person's age in numbers");

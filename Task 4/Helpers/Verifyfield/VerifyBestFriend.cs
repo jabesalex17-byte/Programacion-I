@@ -8,14 +8,14 @@ namespace Task_4.Helpers.Verifyfield;
 
 internal class VerifyBestFriend
 {
-    public static bool VerifyBerstfriend()
+    public static bool VerifyBerstfriend(string title)
     {
         string message = "";
         while (true)
         {
             Console.Clear();
+            Console.WriteLine(title);
             Console.WriteLine(message);
-
             Console.WriteLine("\nIs this person your Best Friend?");
             string answer = Console.ReadLine();
 

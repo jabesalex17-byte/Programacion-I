@@ -9,14 +9,14 @@ namespace Task_4.Helpers.Verifyfield
 {
     public  class VerifyEmail
     {
-        public static string Verifyemail()
+        public static string Verifyemail(string title)
         {
             string message = "";
             while (true)
             {
                 Console.Clear();
+                Console.WriteLine(title);
                 Console.WriteLine(message);
-
                 Console.WriteLine("\nEnter the person's email");
                 string email = Console.ReadLine();
 

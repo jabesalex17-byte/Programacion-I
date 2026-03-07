@@ -22,6 +22,7 @@ namespace Task_4.Helpers.Forms
                 {
                     Console.Clear();
                     ViewList.Viewlist(exitF);
+                    Console.WriteLine("\n\n-----------------------------------------\r\nModify Contact\r\n-----------------------------------------\n");
                     Console.WriteLine(message);
                     Console.WriteLine("What is the ID of the person you want to modify?\n\nType 'exit' to quit");
 
@@ -46,6 +47,7 @@ namespace Task_4.Helpers.Forms
                 while (true)
                 {
                     Console.Clear();
+                    Console.WriteLine("\n\n-----------------------------------------\r\nModify Contact\r\n-----------------------------------------\n");
                     Console.WriteLine("Type the number of what you want to modify\n\nType 'exit' to quit");
                     Console.WriteLine(message);
                     Console.WriteLine("1. First Name \n2. Last Name\n3. Address\n4. Phone\n5. Email\n6. Age\n7. Best Friend\n8. Modify All");
@@ -64,6 +66,9 @@ namespace Task_4.Helpers.Forms
                     {
                         int.TryParse(answer, out information);
                         utilities.ModifyInformation.modifyInformation(id, information);
+                        Console.WriteLine("\nModify Contant successfully");
+                        Console.WriteLine("Press enter to continue.............................");
+                        Console.ReadKey();
                     }
                 }
             }

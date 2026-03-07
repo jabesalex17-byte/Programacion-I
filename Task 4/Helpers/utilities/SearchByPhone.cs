@@ -17,6 +17,7 @@ namespace Task_4.Helpers.utilities
             {
                 Console.Clear();
                 ViewList.Viewlist(exitF);
+                Console.WriteLine("\n\n-----------------------------------------\r\nSearch Contact\r\n-----------------------------------------\n");
                 Console.WriteLine(message);
                 Console.WriteLine("What is the phone number of the person you want to search for?\n\nType 'exit' to go back");
                 string answer = Console.ReadLine();

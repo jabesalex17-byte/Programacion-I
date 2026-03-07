@@ -15,10 +15,11 @@ namespace Task_4.Helpers.utilities
             while (true)
             {
                 Console.Clear();
+                Console.WriteLine("\n\n-----------------------------------------\r\nConfirm Contact\r\n-----------------------------------------\n");
                 Console.WriteLine(message);
-                Console.WriteLine(question);
                 string isBestFriendStr = utilities.BestFriendstr.IsBestfriendStr(isBestFriend);
                 Console.WriteLine($"First Name: {name} \nLast Name: {lastname} \nAddress: {address} \nPhone: {phone} \nEmail: {email} \nAge: {age} \nBest Friend: {isBestFriendStr}");
+                Console.WriteLine(question);
                 string answer = Console.ReadLine();
 
                 if (utilities.UtilitiesList.affirmative.Contains(answer.ToLower().Trim()))
@@ -31,7 +32,7 @@ namespace Task_4.Helpers.utilities
                 }
                 else
                 {
-                    message = "Yes or No (y or n, 1 or 2)";
+                    message = "Yes or No (y or n, 1 or 2)\n";
                     continue;
                 }
 

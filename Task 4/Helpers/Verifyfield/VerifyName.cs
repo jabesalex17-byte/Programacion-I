@@ -8,12 +8,13 @@ namespace Task_4.Helpers.Verifyfield
 {
     public class VerifyName
     {
-        public static string Verifyname()
+        public static string Verifyname(string title)
         {
             string message = "";
             while (true)
             {
                 Console.Clear();
+                Console.WriteLine(title);
                 Console.WriteLine(message);
                 Console.WriteLine("\nEnter the person's first name");
                 string name = Console.ReadLine()!;

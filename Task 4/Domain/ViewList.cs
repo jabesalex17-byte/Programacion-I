@@ -13,7 +13,7 @@ namespace Task_4.Domain
         public static void Viewlist(bool exitFast = false)
         {
             Console.Clear();
-            Console.WriteLine();
+            Console.WriteLine("\n\n-----------------------------------------\r\nList Contact\r\n-----------------------------------------\n");
 
             string header = $"{"Id",-4} | {"First Name",-12} | {"Last Name",-12} | {"Address",-50} | {"Phone",-12} | {"Email",-35} | {"Age",-4} | {"Best Friend",-12}";
 

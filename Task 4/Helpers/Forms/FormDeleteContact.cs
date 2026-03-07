@@ -15,17 +15,18 @@ namespace Task_4.Helpers.Forms
         {
             string message = "";
             bool exitF = true;
-            string question = "are you sure you want to delete this contact?";
+            string question = "\nare you sure you want to delete this contact?";
             while (true)
             {
                 Console.Clear();
                 ViewList.Viewlist(exitF);
+                Console.WriteLine("\n\n-----------------------------------------\r\nDelete Contact\r\n-----------------------------------------\n");
                 Console.WriteLine(message);
                 message = "";
                 Console.WriteLine("what is the id of the person you want to delete\n\nexit to leave");
 
                 string answer = CheckId.Checkid();
-                if (answer == "enter a valid id" || answer == "that id does not exist" || answer == "enter an id")
+                if (answer == "Please enter an ID" || answer == "That ID does not exist" || answer == "Please enter a valid ID")
                 {
                     message = answer;
 
@@ -35,12 +36,15 @@ namespace Task_4.Helpers.Forms
                 {
                     return;
                 }
-                if ((answer.ToLower().Trim() != "enter a valid id" && answer.ToLower().Trim() != "that id does not exist") || answer.ToLower().Trim() == "")
+                if ((answer.ToLower().Trim() != "Please enter an ID" && answer.ToLower().Trim() != "That ID does not exist"))
                 {
                     int.TryParse(answer, out int id);
                     contact c = AddContact.ListContact.FirstOrDefault(c => c.id == id);
                     bool delete = ConfirmContact.Confirmcontact(c.Name, c.LastName, c.addresses, c.phone, c.email, c.Age, c.BestFriend, question);
                     Domain.DeleteContact.DeleteInformation(c);
+                    Console.WriteLine("\nDelete Contant successfully");
+                    Console.WriteLine("Press enter to continue.............................");
+                    Console.ReadKey();
                 }
             }
         }

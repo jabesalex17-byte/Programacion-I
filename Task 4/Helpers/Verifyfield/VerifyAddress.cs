@@ -8,12 +8,13 @@ namespace Task_4.Helpers.Verifyfield
 {
     public  class VerifyAddress
     {
-        public static string Verifyaddress()
+        public static string Verifyaddress(string title)
         {
             string message = "";
             while (true)
             {
                 Console.Clear();
+                Console.WriteLine(title);
                 Console.WriteLine(message);
 
                 Console.WriteLine("\nEnter the address");

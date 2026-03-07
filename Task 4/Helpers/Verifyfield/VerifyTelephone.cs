@@ -8,12 +8,13 @@ namespace Task_4.Helpers.Verifyfield
 {
     public class VerifyTelephone
     {
-        public static string Verifytelephone()
+        public static string Verifytelephone(string title)
         {
             string message = "";
             while (true)
             {
                 Console.Clear();
+                Console.WriteLine(title);
                 Console.WriteLine(message);
 
                 Console.WriteLine("\nEnter the person's phone number\n\n+18092342220 or 8098129834");
