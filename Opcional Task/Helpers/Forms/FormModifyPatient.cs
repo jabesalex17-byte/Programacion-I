@@ -72,6 +72,12 @@ namespace Opcional_Task.Helpers.Forms
                         message = "select a valid option";
                         continue;
                     }
+                                       
+                    if(option > 11 || option < 0)
+                    {
+                        message = "insert a valid option";
+                        continue;
+                    }
 
                     await ModifyPatient.Modifypatient(patient, option);
                     Console.WriteLine("\nModify Patient successfully");
